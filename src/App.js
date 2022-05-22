@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, Component } from 'react';
+import grapesjs from 'grapesjs'
+import 'grapesjs/dist/css/grapes.min.css';
+import 'grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.css';
+import 'grapesjs/dist/grapes.min.js';
+import 'grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    grapesjs.init({
+      container: '#gjs',
+      plugins: ['gjs-preset-webpage'],
+    })
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <div id="gjs"></div>
+      </Fragment>
+    )
+  }
 }
 
 export default App;
